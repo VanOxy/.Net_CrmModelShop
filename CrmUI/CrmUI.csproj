@@ -15,4 +15,13 @@
     <ProjectReference Include="..\CrmBL\CrmBL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="ProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SellerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>
