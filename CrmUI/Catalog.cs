@@ -12,20 +12,78 @@ namespace CrmUI
 {
     public partial class Catalog<T> : Form where T : class
     {
-        private readonly ObservableCollection<T> viewData;
+        private CrmContext db;
+        private DbSet<T> dataSet;
 
-        public Catalog(DbSet<T> dataSet)
+        public Catalog(DbSet<T> dataSet, CrmContext db)
         {
             InitializeComponent();
-            viewData = new ObservableCollection<T>();
+            this.dataSet = dataSet;
+            this.db = db;
+            dataSet.Load();
+            dataGridView.DataSource = dataSet.Local.ToBindingList();
+        }
 
-            var querry = from c in dataSet select c;
-            var data = querry.ToList();
-            foreach (var item in data)
-                viewData.Add(item);
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+            if (typeof(T) == typeof(Product))
+            {
+            }
+            else if (typeof(T) == typeof(Seller))
+            {
+            }
+            else if (typeof(T) == typeof(Customer))
+            {
+            }
+        }
 
-            dataGridView.DataSource = viewData;
-            //dataGridView.DataSource = dataSet.Local.ToBindingList();
+        private void EditBtn_Click(object sender, EventArgs e)
+        {
+            var selectedRow = dataGridView.CurrentCell.RowIndex;
+            var id = dataGridView[0, selectedRow].Value;
+
+            if (typeof(T) == typeof(Product))
+            {
+                var product = dataSet.Find(id) as Product;
+                if (product != null)
+                {
+                    var form = new ProductForm(product);
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        product = form.Product;
+                        db.SaveChanges();
+                        dataGridView.Update();
+                    }
+                }
+            }
+            else if (typeof(T) == typeof(Seller))
+            {
+                var seller = dataSet.Find(id) as Seller;
+                if (seller != null)
+                {
+                    var form = new SellerForm(seller);
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        seller = form.Seller;
+                        db.SaveChanges();
+                        dataGridView.Update();
+                    }
+                }
+            }
+            else if (typeof(T) == typeof(Customer))
+            {
+                var customer = dataSet.Find(id) as Customer;
+                if (customer != null)
+                {
+                    var form = new CustomerForm(customer);
+                    if (form.ShowDialog() == DialogResult.OK)
+                    {
+                        customer = form.Customer;
+                        db.SaveChanges();
+                        dataGridView.Update();
+                    }
+                }
+            }
         }
     }
 }
