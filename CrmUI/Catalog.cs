@@ -20,20 +20,38 @@ namespace CrmUI
             InitializeComponent();
             this.dataSet = dataSet;
             this.db = db;
-            dataSet.Load();
-            dataGridView.DataSource = dataSet.Local.ToBindingList();
+            this.dataSet.Load();
+            dataGridView.DataSource = this.dataSet.Local.ToBindingList();
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
             if (typeof(T) == typeof(Product))
             {
+                var form = new ProductForm();
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    db.Products.Add(form.Product);
+                    db.SaveChanges();
+                }
             }
             else if (typeof(T) == typeof(Seller))
             {
+                var form = new SellerForm();
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    db.Sellers.Add(form.Seller);
+                    db.SaveChanges();
+                }
             }
             else if (typeof(T) == typeof(Customer))
             {
+                var form = new CustomerForm();
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    db.Customers.Add(form.Customer);
+                    db.SaveChanges();
+                }
             }
         }
 
