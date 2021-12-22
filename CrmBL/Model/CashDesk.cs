@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CrmBL.Model
 {
@@ -86,23 +83,18 @@ namespace CrmBL.Model
                         };
 
                         sells.Add(sell);
-
                         if (!IsModel)
-                        {
                             db.Sells.Add(sell);
-                        }
 
                         product.Count--;
                         sum += product.Price;
                     }
                 }
-                check.Price = sum;
 
                 if (!IsModel)
-                {
                     db.SaveChanges();
-                }
 
+                check.Price = sum;
                 CheckClosed?.Invoke(this, check);
             }
             return sum;

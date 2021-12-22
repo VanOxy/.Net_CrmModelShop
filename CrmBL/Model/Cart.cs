@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CrmBL.Model
 {
@@ -44,9 +41,9 @@ namespace CrmBL.Model
         public List<Product> GetAll()
         {
             var result = new List<Product>();
-            foreach (Product i in this)
+            foreach (Product p in this)
             {
-                result.Add(i);
+                result.Add(p);
             }
             return result;
         }

@@ -33,7 +33,7 @@ namespace CrmUI
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.SubmitBtn = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
@@ -60,17 +60,17 @@ namespace CrmUI
             this.label1.TabIndex = 1;
             this.label1.Text = "Name";
             // 
-            // button1
+            // SubmitBtn
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.button1.Location = new System.Drawing.Point(282, 211);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.SubmitBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubmitBtn.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.SubmitBtn.Location = new System.Drawing.Point(282, 211);
+            this.SubmitBtn.Name = "SubmitBtn";
+            this.SubmitBtn.Size = new System.Drawing.Size(94, 29);
+            this.SubmitBtn.TabIndex = 2;
+            this.SubmitBtn.Text = "OK";
+            this.SubmitBtn.UseVisualStyleBackColor = true;
+            this.SubmitBtn.Click += new System.EventHandler(this.SubmitBtn_Click);
             // 
             // numericUpDown1
             // 
@@ -128,7 +128,7 @@ namespace CrmUI
             this.Controls.Add(this.numericUpDown2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.SubmitBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Name = "ProductForm";
@@ -144,7 +144,7 @@ namespace CrmUI
 
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button SubmitBtn;
         private NumericUpDown numericUpDown1;
         private Label label2;
         private NumericUpDown numericUpDown2;

@@ -15,13 +15,13 @@ namespace CrmUI
 
         public ProductForm(Product product) : this()
         {
-            Product = product;
+            Product = product ?? new Product();
             textBox1.Text = Product.Name;
             numericUpDown1.Value = Product.Price;
             numericUpDown2.Value = Product.Count;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void SubmitBtn_Click(object sender, EventArgs e)
         {
             Product ??= new Product();
             Product.Name = textBox1.Text;
