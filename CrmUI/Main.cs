@@ -49,5 +49,11 @@ namespace CrmUI
         private void ProductAddToolStripMenuItem_Click(object sender, EventArgs e)
         {
         }
+
+        private void simulationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = new ModelForm();
+            form.Show();
+        }
     }
 }
